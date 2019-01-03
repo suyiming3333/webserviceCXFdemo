@@ -60,6 +60,14 @@
 			<optional>true</optional>
 			<scope>true</scope>
 		</dependency>
+
+
+		<dependency>
+			<groupId>org.apache.cxf</groupId>
+			<artifactId>cxf-spring-boot-starter-jaxrs</artifactId>
+			<version>3.1.11</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

@@ -4,6 +4,8 @@ import com.sym.wscxfdemo.entity.Person;
 import org.springframework.stereotype.Component;
 
 import javax.jws.WebService;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @ClassName: TestServiceImpl
@@ -21,6 +23,13 @@ public class TestServiceImpl implements TestService {
     @Override
     public String sayHello(String name) {
         return "hello , "+ name;
+    }
+
+    @Override
+    public Map sayHelloMap(String name) {
+        Map map = new HashMap();
+        map.put("name",name);
+        return map;
     }
 
     @Override

@@ -5,6 +5,7 @@ import com.sym.wscxfdemo.entity.Person;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
+import java.util.Map;
 
 /**
  * @ClassName: TestService
@@ -27,6 +28,9 @@ public interface TestService {
      */
     @WebMethod
     String sayHello(@WebParam(name = "userName")String name);
+
+    @WebMethod
+    Map sayHelloMap(@WebParam(name = "userName")String name);
 
     @WebMethod
     Person getPerson(@WebParam(name = "personName")String personName,@WebParam(name = "age")int age);

@@ -1,5 +1,6 @@
 package com.sym.wscxfdemo;
 
+import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 import com.sym.wscxfdemo.service.PersenSerivceImpl;
 import com.sym.wscxfdemo.service.TestService;
 import org.apache.cxf.Bus;
@@ -44,11 +45,19 @@ public class CxfConfig {
         return new ServletRegistrationBean(new CXFServlet(),"/person/*");
     }
 
+
+     //配置一个对象与json转换的工具
+    @Bean
+    public JacksonJaxbJsonProvider jacksonJaxbJsonProvider() {
+        return new JacksonJaxbJsonProvider();
+    }
+
     @Bean
     public Server server(){
         JAXRSServerFactoryBean bean = new JAXRSServerFactoryBean();
         bean.setBus(bus);
-        bean.setAddress("/person");
+        bean.setProvider(new JacksonJaxbJsonProvider());//json格式转换器
+        bean.setAddress("/rest");
         bean.setServiceBean(Arrays.asList(new PersenSerivceImpl()));
         return bean.create();
     }

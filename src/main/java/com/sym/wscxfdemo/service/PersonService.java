@@ -6,10 +6,10 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Path(value = "/")
-@Produces("application/xml")
+//@Produces("application/xml")
 //@Produces("application/json")//返回的格式
-//@Produces(MediaType.APPLICATION_JSON)
-//@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
+//@Consumes("application/xml")
 public interface PersonService {
 
     /**
@@ -19,6 +19,7 @@ public interface PersonService {
      */
     @GET
     @Path(value = "/{name}")
+    @Consumes("application/xml")
     Person getPersonByName(@PathParam("name")String name);
 
     @GET
